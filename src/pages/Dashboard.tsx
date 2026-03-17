@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Eye, AudioLines, Fingerprint, Brain,
-  AlertTriangle, CheckCircle2, Clock, XCircle, Filter, ShieldAlert, TrendingUp
+  AlertTriangle, CheckCircle2, Clock, XCircle, Filter, ShieldAlert, TrendingUp, Scan, Plus
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import EvidencePanel from "@/components/evidence/EvidencePanel";
+import { getVerifications, type VerificationResult } from "@/lib/verificationStore";
+import { useAuth } from "@/contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 const verifications = [
   { id: "VRF-2847", name: "Sarah Chen", time: "12s ago", region: "US-East", type: "KYC Onboarding", riskScore: 12, status: "approved", video: 0.95, audio: 0.91, liveness: 0.97, behavioral: 0.94 },
