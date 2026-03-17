@@ -99,7 +99,7 @@ const Settings = () => {
       content: (
         <div className="space-y-3">
           {[
-            { name: "Admin", email: "admin@sentinelid.ai", role: "Owner" },
+            { name: "Admin", email: "admin@veriastra.ai", role: "Owner" },
             { name: "Sarah Chen", email: "sarah@company.com", role: "Reviewer" },
             { name: "Marcus Johnson", email: "marcus@company.com", role: "Analyst" },
           ].map((u) => (
@@ -126,7 +126,7 @@ const Settings = () => {
           <div>
             <label className="text-sm text-foreground mb-2 block">API Key (publishable)</label>
             <div className="flex gap-2">
-              <Input value="pk_live_sentinelid_a8f3k2..." readOnly className="bg-secondary border-border text-muted-foreground font-mono-data text-xs" />
+              <Input value="pk_live_veriastra_a8f3k2..." readOnly className="bg-secondary border-border text-muted-foreground font-mono-data text-xs" />
               <Button variant="outline" size="sm" className="text-xs border-border text-muted-foreground shrink-0">Copy</Button>
             </div>
           </div>

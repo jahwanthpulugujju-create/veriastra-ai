@@ -3,7 +3,7 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "SentinelID cut our fraud-related chargebacks by 94%. The explainable risk scores let our compliance team audit every decision in seconds.",
+    quote: "Veriastra cut our fraud-related chargebacks by 94%. The explainable risk scores let our compliance team audit every decision in seconds.",
     name: "Rachel Torres",
     role: "Head of Fraud Prevention",
     company: "NeoBank Europe",

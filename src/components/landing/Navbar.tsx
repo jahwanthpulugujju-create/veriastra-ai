@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -9,9 +9,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <Shield className="h-7 w-7 text-primary" />
-          <span className="text-lg font-semibold tracking-tight text-foreground">SentinelID</span>
+        <Link to="/" className="flex items-center gap-3">
+          <img src="/veriastra-logo.png" alt="Veriastra logo" className="h-8 w-8 object-contain brightness-0 invert" />
+          <span className="text-lg font-bold tracking-widest text-foreground uppercase">Veriastra</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

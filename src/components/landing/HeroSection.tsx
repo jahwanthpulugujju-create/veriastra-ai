@@ -27,19 +27,23 @@ const HeroSection = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-secondary/50 mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
             <span className="text-xs font-medium text-muted-foreground font-mono-data tracking-wide uppercase">
-              Enterprise-Grade Deepfake Detection
+              Identity Verification &amp; Deepfake Defense Platform
             </span>
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.08]">
-            Detect deepfakes
+            Detect deepfakes,
             <br />
-            <span className="text-gradient-brand">before they verify</span>
+            <span className="text-gradient-brand">Verify identity</span>
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Multi-modal AI that catches face swaps, voice clones, and synthetic media in real-time.
-            Secure your KYC pipeline with sub-2s detection and auditable risk scores.
+            Real-time identity verification powered by multimodal AI. Detect deepfakes, validate liveness,
+            and analyze behavioral signals with explainable risk scoring.
+          </p>
+
+          <p className="mt-3 text-sm font-medium tracking-widest text-primary/70 uppercase font-mono-data">
+            Trust, Verified in Real Time.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -64,7 +68,7 @@ const HeroSection = () => {
           className="mt-16 relative"
         >
           <div className="relative rounded-xl overflow-hidden glow-border">
-            <img src={heroVisual} alt="SentinelID deepfake detection platform interface" className="w-full rounded-xl" />
+            <img src={heroVisual} alt="Veriastra identity verification platform interface" className="w-full rounded-xl" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
           </div>
         </motion.div>

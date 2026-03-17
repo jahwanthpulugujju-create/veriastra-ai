@@ -13,7 +13,7 @@ const sampleResponse = {
   prediction: "FAKE",
   confidence: 0.93,
   risk_score: 87,
-  model: "sentinelid-fusion-v2",
+  model: "veriastra-fusion-v2",
   frame_analysis: [0.91, 0.95, 0.92, 0.88, 0.94],
   liveness: { passed: false, blink_count: 0, frames_checked: 142 },
   reason_codes: ["facial_texture_artifacts", "lip_sync_mismatch", "temporal_inconsistency"],
@@ -27,21 +27,21 @@ const sampleResponse = {
   },
 };
 
-const curlExample = `curl -X POST https://api.sentinelid.ai/v1/analyze \\
+const curlExample = `curl -X POST https://api.veriastra.ai/v1/analyze \\
   -H "Authorization: Bearer sk_live_..." \\
   -H "Content-Type: multipart/form-data" \\
   -F "file=@sample_video.mp4" \\
   -F "mode=full"`;
 
-const jsExample = `import SentinelID from '@sentinelid/sdk';
+const jsExample = `import Veriastra from '@veriastra/sdk';
 
-const sentinel = new SentinelID({
+const client = new Veriastra({
   apiKey: 'sk_live_...',
   tenantId: 'tenant_org_2xK8m9'
 });
 
 // Analyze a file
-const result = await sentinel.analyze({
+const result = await client.analyze({
   file: videoBlob,
   mode: 'full', // 'video' | 'audio' | 'full'
 });
@@ -52,7 +52,7 @@ console.log(result.reason_codes);`;
 
 const pythonExample = `import requests
 
-url = "https://api.sentinelid.ai/v1/analyze"
+url = "https://api.veriastra.ai/v1/analyze"
 headers = {"Authorization": "Bearer sk_live_..."}
 
 with open("sample.mp4", "rb") as f:
@@ -106,7 +106,7 @@ const ApiPlayground = () => {
       <div className="flex-1 overflow-y-auto p-6 space-y-6">
         <div>
           <h1 className="text-2xl font-bold text-foreground">API Playground</h1>
-          <p className="text-sm text-muted-foreground mt-1">Test endpoints, view responses, and integrate SentinelID into your application</p>
+          <p className="text-sm text-muted-foreground mt-1">Test endpoints, view responses, and integrate Veriastra into your application</p>
         </div>
 
         {/* API Endpoints */}
@@ -211,7 +211,7 @@ const ApiPlayground = () => {
               {[
                 ["content-type", "application/json; charset=utf-8"],
                 ["x-request-id", "req_" + Math.random().toString(36).slice(2, 10)],
-                ["x-model-version", "sentinelid-fusion-v2.1.0"],
+                ["x-model-version", "veriastra-fusion-v2.1.0"],
                 ["x-inference-time-ms", String(Math.floor(responseTime * 0.7))],
                 ["x-ratelimit-remaining", "497"],
                 ["x-ratelimit-reset", new Date(Date.now() + 60000).toISOString()],
