@@ -116,7 +116,7 @@ const Verify = () => {
       {/* Header */}
       <header className="border-b border-border px-6 py-4 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-2">
-          <img src="/veriastra-logo.png" alt="Veriastra" className="h-5 w-5 object-contain brightness-0 invert" />
+          <img src="/veriastra-logo.png" alt="Veriastra" className="h-5 w-5 object-contain" />
           <span className="font-bold text-foreground text-sm tracking-widest uppercase">Veriastra</span>
         </div>
         <span className="text-xs text-muted-foreground font-mono-data">{sessionId}</span>

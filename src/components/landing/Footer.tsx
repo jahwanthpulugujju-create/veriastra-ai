@@ -11,7 +11,7 @@ const Footer = () => (
       <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
         <div className="col-span-2 md:col-span-1">
           <div className="flex items-center gap-2.5 mb-4">
-            <img src="/veriastra-logo.png" alt="Veriastra logo" className="h-6 w-6 object-contain brightness-0 invert" />
+            <img src="/veriastra-logo.png" alt="Veriastra logo" className="h-6 w-6 object-contain" />
             <span className="font-bold text-foreground tracking-widest uppercase text-sm">Veriastra</span>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
