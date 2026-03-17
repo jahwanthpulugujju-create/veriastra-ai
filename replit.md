@@ -23,3 +23,4 @@ The app runs via the "Start application" workflow using `npm run dev` on port 50
 
 ## Notes
 - Migrated from Lovable to Replit: removed `lovable-tagger` dev dependency and updated `vite.config.ts` to bind to `0.0.0.0:5000` with `allowedHosts: true` for Replit compatibility.
+- Production upgrade applied: live product UI in hero, 4-factor risk scoring (video/audio/liveness/behavioral), forensic evidence panel with heatmap toggle + collapsible signals + "Why flagged?" plain-language explanations, frame-by-frame processing animation in verify flow, SOC-grade live monitoring with threat severity breakdown and region/latency columns.

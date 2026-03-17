@@ -1,0 +1,234 @@
+# Product Enhancement Prompt — Veriastra (Production Upgrade)
+
+## Context
+
+You are improving an existing web application called **Veriastra**, an AI-powered identity verification and deepfake defense platform.
+
+The current system already includes:
+
+* Multi-step verification flow (camera → liveness → voice → processing → results)
+* Evidence analysis panel
+* Live monitoring (SOC dashboard)
+* API playground
+* Analytics dashboard
+
+Your goal is to transform this into a **production-ready, enterprise-grade platform** that feels like a real, funded SaaS product.
+
+---
+
+## Core Objective
+
+Upgrade the system from a **high-fidelity prototype** into a **realistic, trustworthy, and scalable product experience** with:
+
+* Realistic data flow
+* Strong UX clarity
+* Enterprise-grade UI polish
+* Clear AI explainability
+* System credibility (no fake/demo feel)
+
+---
+
+## 1. UI/UX Upgrade (Top Priority)
+
+### Guidelines:
+
+* Replace generic visuals with **real product UI states**
+* Ensure every screen answers: *“What is happening right now?”*
+* Reduce visual noise; increase clarity and hierarchy
+* Use consistent spacing, typography, and color system
+
+### Improve:
+
+* Hero section → show real verification UI (not abstract face)
+* Dashboard → highlight most important metrics first
+* Evidence panel → make it feel like a forensic tool, not a modal
+* Add micro-interactions (loading states, transitions, hover feedback)
+
+---
+
+## 2. Verification Flow (Make It Feel Real)
+
+### Guidelines:
+
+* Each step should feel like part of a **secure pipeline**
+* Show progress clearly (step indicators, status updates)
+* Add time-based feedback (e.g., “Analyzing frame 3/10”)
+
+### Enhance:
+
+* Camera step → add face bounding box + alignment guide
+* Liveness → show real-time feedback (blink detected, head movement)
+* Processing step → show pipeline stages:
+
+  * Face Analysis
+  * Liveness Validation
+  * Behavioral Signals
+  * Risk Aggregation
+
+---
+
+## 3. Evidence Panel (Major Differentiator)
+
+### Guidelines:
+
+* Treat this as a **core product feature**, not secondary UI
+* Must feel like a **forensic investigation tool**
+
+### Enhance:
+
+* Frame timeline with:
+
+  * flagged frames
+  * timestamps
+  * confidence indicators
+* Heatmap overlay toggle (on/off)
+* Detection signals with:
+
+  * percentage bars
+  * short explanations
+* Add “Why flagged?” explanations in simple language
+* Add export:
+
+  * downloadable evidence report (PDF-style layout)
+
+---
+
+## 4. Risk Scoring System (Make It Believable)
+
+### Guidelines:
+
+* Avoid random/static numbers
+* Show multi-factor scoring
+
+### Structure:
+
+* Face Authenticity
+* Liveness Score
+* Behavioral Analysis
+* (Optional) Audio Signals
+
+### Output:
+
+* Final Risk Score (Low / Medium / High)
+* Confidence level
+* Short explanation
+
+---
+
+## 5. Live Monitoring (SOC Dashboard)
+
+### Guidelines:
+
+* Make it feel like a **real security operations center**
+
+### Improve:
+
+* Real-time updates (simulate streaming data)
+* Highlight anomalies visually
+* Add:
+
+  * threat severity colors
+  * alert prioritization
+* Activity heatmap → clearer labels + legend
+
+---
+
+## 6. API Playground (Developer Experience)
+
+### Guidelines:
+
+* Make this feel like Stripe / Twilio level DX
+
+### Improve:
+
+* Clean endpoint documentation
+* Add:
+
+  * request examples
+  * response previews
+  * error states
+* Allow users to simulate requests with realistic outputs
+
+---
+
+## 7. Data & System Realism
+
+### Guidelines:
+
+* Avoid placeholder/demo content
+* Use **consistent, believable data**
+
+### Add:
+
+* Session IDs
+* Timestamps
+* Region/location tags
+* Model version indicators
+
+---
+
+## 8. Branding & Positioning
+
+### Guidelines:
+
+* Product should feel like a **security + AI platform**
+* Avoid generic “AI app” feel
+
+### Use:
+
+* Name: Veriastra
+* Tone: professional, minimal, confident
+
+### Tagline:
+
+“Trust, Verified in Real Time.”
+
+---
+
+## 9. Visual Design System
+
+### Guidelines:
+
+* Dark theme (primary)
+* Accent colors:
+
+  * Blue (trust)
+  * Orange/Red (risk)
+  * Green (safe)
+* Use soft glows, subtle grids, minimal gradients
+
+---
+
+## 10. Micro-Interactions
+
+### Add:
+
+* Loading animations during processing
+* Smooth transitions between steps
+* Hover states for cards and buttons
+* Real-time updates (pulse indicators, blinking alerts)
+
+---
+
+## 11. What to Avoid
+
+* No dummy/random outputs
+* No generic AI illustrations
+* No cluttered dashboards
+* No inconsistent spacing or fonts
+
+---
+
+## Final Goal
+
+The final product should:
+
+* Feel like a **real enterprise SaaS**
+* Be demo-ready for judges/investors
+* Clearly show:
+
+  * what the system does
+  * how it works
+  * why it can be trusted
+
+---

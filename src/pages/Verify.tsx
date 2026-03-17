@@ -245,12 +245,61 @@ const Verify = () => {
 
           {/* PROCESSING */}
           {step === "processing" && (
-            <motion.div key="processing" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="w-full max-w-md space-y-8 text-center">
+            <motion.div key="processing" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="w-full max-w-md space-y-6 text-center">
               <div>
                 <h2 className="text-xl font-bold text-foreground">Analyzing with Veriastra AI</h2>
-                <p className="text-sm text-muted-foreground mt-1">Running multi-modal detection pipeline</p>
+                <p className="text-sm text-muted-foreground mt-1">Running multi-modal detection pipeline · veriastra-fusion-v2.1.0</p>
               </div>
-              <div className="space-y-3">
+
+              {/* Frame analysis counter */}
+              <div className="rounded-xl border border-border bg-card p-4">
+                <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                  <span className="font-mono-data">Frame Analysis</span>
+                  <span className="font-mono-data text-primary">
+                    {Math.min(processingStage * 2, 10)}/10 frames
+                  </span>
+                </div>
+                <div className="flex gap-1.5 mb-3">
+                  {Array.from({ length: 10 }).map((_, i) => {
+                    const analyzed = i < processingStage * 2;
+                    const flagged = analyzed && [1, 2, 4, 6].includes(i);
+                    return (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: analyzed ? 1 : 0.3, scale: 1 }}
+                        transition={{ delay: i * 0.05 }}
+                        className={`flex-1 h-8 rounded border-2 text-[8px] font-mono-data flex items-center justify-center transition-colors ${
+                          analyzed
+                            ? flagged
+                              ? "border-destructive bg-destructive/10 text-destructive"
+                              : "border-success bg-success/10 text-success"
+                            : "border-border bg-secondary/30 text-muted-foreground"
+                        }`}
+                      >
+                        {analyzed ? (flagged ? "⚠" : "✓") : i + 1}
+                      </motion.div>
+                    );
+                  })}
+                </div>
+                {processingStage > 0 && (
+                  <motion.p
+                    key={processingStage}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-[11px] text-muted-foreground font-mono-data"
+                  >
+                    {processingStage < 3
+                      ? `Analyzing frame ${Math.min(processingStage * 2, 10)}/10 — extracting facial landmarks`
+                      : processingStage < 5
+                      ? `Analyzing frame ${Math.min(processingStage * 2, 10)}/10 — running artifact detection`
+                      : "Aggregating signals — computing fusion risk score"}
+                  </motion.p>
+                )}
+              </div>
+
+              {/* Pipeline stages */}
+              <div className="space-y-2">
                 {processingStages.map((stage, i) => {
                   const done = i < processingStage;
                   const active = i === processingStage;
@@ -259,9 +308,9 @@ const Verify = () => {
                       key={stage.label}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-lg border transition-colors ${
-                        done ? "border-success/30 bg-success/5" : active ? "border-primary/50 bg-primary/5" : "border-border bg-card"
+                      transition={{ delay: i * 0.07 }}
+                      className={`flex items-center gap-3 px-4 py-2.5 rounded-lg border transition-colors ${
+                        done ? "border-success/30 bg-success/5" : active ? "border-primary/40 bg-primary/5" : "border-border bg-card"
                       }`}
                     >
                       {done ? (
@@ -269,23 +318,31 @@ const Verify = () => {
                       ) : active ? (
                         <Loader2 className="h-4 w-4 text-primary animate-spin shrink-0" />
                       ) : (
-                        <stage.icon className="h-4 w-4 text-muted-foreground shrink-0" />
+                        <stage.icon className="h-4 w-4 text-muted-foreground/50 shrink-0" />
                       )}
-                      <span className={`text-sm ${done ? "text-success" : active ? "text-primary" : "text-muted-foreground"}`}>
+                      <span className={`text-sm ${done ? "text-success" : active ? "text-primary" : "text-muted-foreground/60"}`}>
                         {stage.label}
                       </span>
-                      {done && <span className="ml-auto text-[10px] font-mono-data text-success">✓</span>}
-                      {active && <span className="ml-auto text-[10px] font-mono-data text-primary animate-pulse">processing</span>}
+                      {done && <span className="ml-auto text-[10px] font-mono-data text-success">done</span>}
+                      {active && <span className="ml-auto text-[10px] font-mono-data text-primary animate-pulse">running…</span>}
                     </motion.div>
                   );
                 })}
               </div>
-              <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-primary rounded-full"
-                  animate={{ width: `${(processingStage / processingStages.length) * 100}%` }}
-                  transition={{ duration: 0.3 }}
-                />
+
+              {/* Overall progress */}
+              <div>
+                <div className="flex justify-between text-[10px] text-muted-foreground font-mono-data mb-1.5">
+                  <span>Overall progress</span>
+                  <span>{Math.round((processingStage / processingStages.length) * 100)}%</span>
+                </div>
+                <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-primary rounded-full"
+                    animate={{ width: `${(processingStage / processingStages.length) * 100}%` }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </div>
               </div>
             </motion.div>
           )}
