@@ -33,7 +33,7 @@ const EvidencePanel = ({ open, onClose, verificationId = "VRF-2846" }: Props) =>
   const handleExport = () => {
     toast({ title: "Generating Evidence Pack", description: "PDF with frames, heatmaps, and audit trail" });
     setTimeout(() => {
-      const content = `SentinelID Evidence Pack\nVerification: ${verificationId}\nGenerated: ${new Date().toISOString()}\n\nVerdict: SYNTHETIC MEDIA DETECTED\nRisk Score: 78/100\nConfidence: 93.2%\n\nFlagged Frames:\n- Frame @ 0.8s — Score: 0.89 — Facial texture artifacts\n- Frame @ 1.2s — Score: 0.94 — Lip sync mismatch\n- Frame @ 2.0s — Score: 0.91 — Temporal inconsistency\n- Frame @ 2.8s — Score: 0.87 — GAN fingerprint\n\nDetection Signals:\n- Lip Sync Mismatch: 92% confidence\n- Facial Texture Artifacts: 87% confidence\n- Eye Blink Anomaly: 81% confidence\n- Audio Spectral Inconsistency: 76% confidence\n\nModel: sentinelid-fusion-v2.1.0\nHash: sha256:${Math.random().toString(36).slice(2)}\n`;
+      const content = `Veriastra Evidence Pack\nVerification: ${verificationId}\nGenerated: ${new Date().toISOString()}\n\nVerdict: SYNTHETIC MEDIA DETECTED\nRisk Score: 78/100\nConfidence: 93.2%\n\nFlagged Frames:\n- Frame @ 0.8s — Score: 0.89 — Facial texture artifacts\n- Frame @ 1.2s — Score: 0.94 — Lip sync mismatch\n- Frame @ 2.0s — Score: 0.91 — Temporal inconsistency\n- Frame @ 2.8s — Score: 0.87 — GAN fingerprint\n\nDetection Signals:\n- Lip Sync Mismatch: 92% confidence\n- Facial Texture Artifacts: 87% confidence\n- Eye Blink Anomaly: 81% confidence\n- Audio Spectral Inconsistency: 76% confidence\n\nModel: veriastra-fusion-v2.1.0\nHash: sha256:${Math.random().toString(36).slice(2)}\n`;
       const blob = new Blob([content], { type: "text/plain" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -174,10 +174,10 @@ const EvidencePanel = ({ open, onClose, verificationId = "VRF-2846" }: Props) =>
           <div className="rounded-lg border border-border bg-secondary/30 p-4">
             <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Provenance Chain</h4>
             <div className="space-y-1 text-xs font-mono-data text-muted-foreground">
-              <p>Model: sentinelid-fusion-v2.1.0</p>
+              <p>Model: veriastra-fusion-v2.1.0</p>
               <p>Inference: 2026-03-17T{new Date().toISOString().slice(11)}</p>
               <p>Evidence Hash: sha256:{Math.random().toString(36).slice(2, 18)}{Math.random().toString(36).slice(2, 18)}</p>
-              <p>Signed by: SentinelID Verification Authority</p>
+              <p>Signed by: Veriastra Verification Authority</p>
             </div>
           </div>
         </div>

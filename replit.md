@@ -1,7 +1,7 @@
-# SentinelID
+# Veriastra
 
 ## Overview
-SentinelID is an enterprise-grade deepfake detection platform. It is a pure frontend React/Vite/TypeScript application featuring a landing page and a dashboard with analytics, live monitoring, settings, and API playground sections.
+Veriastra is an Identity Verification & Deepfake Defense Platform. It is a pure frontend React/Vite/TypeScript application featuring a landing page and a dashboard with analytics, live monitoring, settings, and API playground sections. Tagline: "Trust, Verified in Real Time."
 
 ## Tech Stack
 - **Framework**: React 18 with TypeScript

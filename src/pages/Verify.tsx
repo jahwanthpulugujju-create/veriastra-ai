@@ -116,8 +116,8 @@ const Verify = () => {
       {/* Header */}
       <header className="border-b border-border px-6 py-4 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-2">
-          <Shield className="h-5 w-5 text-primary" />
-          <span className="font-semibold text-foreground text-sm">SentinelID Verification</span>
+          <img src="/veriastra-logo.png" alt="Veriastra" className="h-5 w-5 object-contain brightness-0 invert" />
+          <span className="font-bold text-foreground text-sm tracking-widest uppercase">Veriastra</span>
         </div>
         <span className="text-xs text-muted-foreground font-mono-data">{sessionId}</span>
       </header>
@@ -219,7 +219,7 @@ const Verify = () => {
                   </div>
                 </div>
                 <p className="text-sm text-foreground mb-2">Please say:</p>
-                <p className="text-lg font-medium text-primary font-mono-data">"I verify my identity with SentinelID"</p>
+                <p className="text-lg font-medium text-primary font-mono-data">"I verify my identity with Veriastra"</p>
                 {/* Fake waveform */}
                 <div className="flex items-end justify-center gap-0.5 h-12 mt-6">
                   {Array.from({ length: 40 }).map((_, i) => (
@@ -247,7 +247,7 @@ const Verify = () => {
           {step === "processing" && (
             <motion.div key="processing" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="w-full max-w-md space-y-8 text-center">
               <div>
-                <h2 className="text-xl font-bold text-foreground">Analyzing with SentinelID AI</h2>
+                <h2 className="text-xl font-bold text-foreground">Analyzing with Veriastra AI</h2>
                 <p className="text-sm text-muted-foreground mt-1">Running multi-modal detection pipeline</p>
               </div>
               <div className="space-y-3">

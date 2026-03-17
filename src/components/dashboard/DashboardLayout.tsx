@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import {
-  Shield, LayoutDashboard, Users, BarChart3, Settings, LogOut,
+  LayoutDashboard, Users, BarChart3, Settings, LogOut,
   Search, Bell, ChevronDown, Radio, Code2
 } from "lucide-react";
 
@@ -19,9 +19,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex h-screen bg-background overflow-hidden">
       <aside className="w-64 shrink-0 border-r border-border bg-navy-deep flex flex-col">
-        <Link to="/" className="flex items-center gap-2 px-6 py-5 border-b border-border">
-          <Shield className="h-6 w-6 text-primary" />
-          <span className="font-semibold text-foreground text-sm">SentinelID</span>
+        <Link to="/" className="flex items-center gap-2.5 px-6 py-5 border-b border-border">
+          <img src="/veriastra-logo.png" alt="Veriastra logo" className="h-6 w-6 object-contain brightness-0 invert" />
+          <span className="font-bold text-foreground text-sm tracking-widest uppercase">Veriastra</span>
         </Link>
         <nav className="flex-1 p-4 space-y-1">
           {navItems.map((item) => {
