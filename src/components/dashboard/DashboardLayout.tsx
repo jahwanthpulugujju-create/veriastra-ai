@@ -8,7 +8,7 @@ const navItems = [
   { icon: LayoutDashboard, label: "Overview", path: "/dashboard" },
   { icon: Users, label: "Verifications", path: "/dashboard" },
   { icon: BarChart3, label: "Analytics", path: "/dashboard/analytics" },
-  { icon: Settings, label: "Settings", path: "/dashboard" },
+  { icon: Settings, label: "Settings", path: "/dashboard/settings" },
 ];
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -16,7 +16,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
-      {/* Sidebar */}
       <aside className="w-64 shrink-0 border-r border-border bg-navy-deep flex flex-col">
         <Link to="/" className="flex items-center gap-2 px-6 py-5 border-b border-border">
           <Shield className="h-6 w-6 text-primary" />
@@ -30,9 +29,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                 key={item.label}
                 to={item.path}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
-                  active
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  active ? "bg-primary/10 text-primary" : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 }`}
               >
                 <item.icon className="h-4 w-4" />
@@ -42,19 +39,14 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           })}
         </nav>
         <div className="p-4 border-t border-border">
-          <Link
-            to="/"
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-          >
+          <Link to="/" className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-colors">
             <LogOut className="h-4 w-4" />
             Back to site
           </Link>
         </div>
       </aside>
 
-      {/* Main */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Top bar */}
         <header className="h-14 border-b border-border flex items-center justify-between px-6 shrink-0">
           <div className="flex items-center gap-3 bg-secondary rounded-lg px-3 py-1.5 w-80">
             <Search className="h-4 w-4 text-muted-foreground" />
@@ -72,7 +64,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             </div>
           </div>
         </header>
-
         {children}
       </div>
     </div>
