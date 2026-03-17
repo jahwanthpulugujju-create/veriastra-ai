@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <img src="/veriastra-logo.png" alt="Veriastra logo" className="h-8 w-8 object-contain brightness-0 invert" />
+          <img src="/veriastra-logo.png" alt="Veriastra logo" className="h-8 w-8 object-contain" />
           <span className="text-lg font-bold tracking-widest text-foreground uppercase">Veriastra</span>
         </Link>
 
