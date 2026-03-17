@@ -1,13 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
 import {
   Shield, LayoutDashboard, Users, BarChart3, Settings, LogOut,
-  Search, Bell, ChevronDown
+  Search, Bell, ChevronDown, Radio, Code2
 } from "lucide-react";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Overview", path: "/dashboard" },
   { icon: Users, label: "Verifications", path: "/dashboard" },
   { icon: BarChart3, label: "Analytics", path: "/dashboard/analytics" },
+  { icon: Radio, label: "Live Monitor", path: "/dashboard/live" },
+  { icon: Code2, label: "API Playground", path: "/dashboard/api" },
   { icon: Settings, label: "Settings", path: "/dashboard/settings" },
 ];
 

@@ -7,6 +7,9 @@ import Index from "./pages/Index.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import Analytics from "./pages/Analytics.tsx";
 import Settings from "./pages/Settings.tsx";
+import Verify from "./pages/Verify.tsx";
+import LiveMonitoring from "./pages/LiveMonitoring.tsx";
+import ApiPlayground from "./pages/ApiPlayground.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -19,9 +22,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/verify" element={<Verify />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/analytics" element={<Analytics />} />
           <Route path="/dashboard/settings" element={<Settings />} />
+          <Route path="/dashboard/live" element={<LiveMonitoring />} />
+          <Route path="/dashboard/api" element={<ApiPlayground />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
