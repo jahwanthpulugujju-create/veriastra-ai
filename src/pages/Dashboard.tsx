@@ -2,10 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Eye, AudioLines, Fingerprint,
-  AlertTriangle, CheckCircle2, Clock, XCircle, Filter
+  AlertTriangle, CheckCircle2, Clock, XCircle, Filter, Brain
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import EvidencePanel from "@/components/evidence/EvidencePanel";
 
 const verifications = [
   { id: "VRF-2847", name: "Sarah Chen", time: "12s ago", riskScore: 12, status: "approved", video: 0.95, audio: 0.91, liveness: 0.97 },
@@ -39,6 +40,7 @@ const getRiskBarColor = (score: number) => {
 
 const Dashboard = () => {
   const [selected, setSelected] = useState<string | null>("VRF-2846");
+  const [evidenceOpen, setEvidenceOpen] = useState(false);
   const selectedItem = verifications.find(v => v.id === selected);
 
   return (
@@ -46,7 +48,6 @@ const Dashboard = () => {
       <div className="flex-1 flex overflow-hidden">
         {/* Verification list */}
         <div className="w-full lg:w-[55%] flex flex-col overflow-hidden border-r border-border">
-          {/* Stats row */}
           <div className="grid grid-cols-4 gap-4 p-6 border-b border-border shrink-0">
             {[
               { label: "Total Today", value: "1,284", change: "+12%" },
@@ -62,7 +63,6 @@ const Dashboard = () => {
             ))}
           </div>
 
-          {/* List header */}
           <div className="flex items-center justify-between px-6 py-3 border-b border-border shrink-0">
             <h2 className="text-sm font-semibold text-foreground">Verification Queue</h2>
             <Button variant="outline" size="sm" className="h-7 text-xs border-border text-muted-foreground hover:text-foreground">
@@ -70,7 +70,6 @@ const Dashboard = () => {
             </Button>
           </div>
 
-          {/* List */}
           <div className="flex-1 overflow-y-auto">
             {verifications.map((v, i) => {
               const statusCfg = statusConfig[v.status];
@@ -204,6 +203,12 @@ const Dashboard = () => {
                   <XCircle className="h-4 w-4 mr-2" /> Reject
                 </Button>
               </div>
+
+              {selectedItem.riskScore >= 20 && (
+                <Button variant="outline" onClick={() => setEvidenceOpen(true)} className="w-full border-border text-muted-foreground hover:text-foreground">
+                  <Brain className="h-4 w-4 mr-2" /> View Evidence Analysis
+                </Button>
+              )}
             </motion.div>
           ) : (
             <div className="flex-1 flex items-center justify-center text-muted-foreground text-sm">
@@ -212,6 +217,8 @@ const Dashboard = () => {
           )}
         </div>
       </div>
+
+      <EvidencePanel open={evidenceOpen} onClose={() => setEvidenceOpen(false)} verificationId={selected || undefined} />
     </DashboardLayout>
   );
 };
