@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Eye, AudioLines, Scan, Brain, Clock, AlertTriangle, Download, X, ChevronDown, ChevronUp, Layers, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
+import { generateDefaultReport } from "@/lib/generateReport";
 
 interface Props {
   open: boolean;
@@ -67,60 +68,11 @@ const EvidencePanel = ({ open, onClose, verificationId = "VRF-2846" }: Props) =>
   if (!open) return null;
 
   const handleExport = () => {
-    toast({ title: "Generating Evidence Pack", description: "PDF with frames, heatmaps, and audit trail" });
+    toast({ title: "Generating Evidence Pack", description: "Professional PDF report downloading..." });
     setTimeout(() => {
-      const hash = Math.random().toString(36).slice(2, 18) + Math.random().toString(36).slice(2, 18);
-      const content = `VERIASTRA FORENSIC EVIDENCE PACK
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Verification ID : ${verificationId}
-Generated       : ${new Date().toISOString()}
-Operator        : admin@veriastra.ai
-Session Region  : EU-West-1
-
-VERDICT: SYNTHETIC MEDIA DETECTED
-Overall Risk Score : 78 / 100
-Confidence         : 93.2%
-Classification     : HIGH RISK — DEEPFAKE
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-MULTI-FACTOR BREAKDOWN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Face Authenticity    : 11/100 (CRITICAL)
-Liveness Score       : 15/100 (CRITICAL)
-Behavioral Analysis  : 34/100 (ELEVATED)
-Audio Signals        : 24/100 (CRITICAL)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FLAGGED FRAMES (4 of 8 analyzed)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Frame 2 @ 0.8s — Score: 89% — Facial texture artifacts
-Frame 3 @ 1.2s — Score: 94% — Lip sync mismatch
-Frame 5 @ 2.0s — Score: 91% — Temporal inconsistency
-Frame 7 @ 2.8s — Score: 87% — GAN fingerprint
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DETECTION SIGNALS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Lip Sync Mismatch          : 92% confidence
-Facial Texture Artifacts   : 87% confidence
-Eye Blink Anomaly          : 81% confidence
-Audio Spectral Inconsistency: 76% confidence
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PROVENANCE CHAIN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Model   : veriastra-fusion-v2.1.0
-Evidence Hash : sha256:${hash}
-Signed  : Veriastra Verification Authority
-`;
-      const blob = new Blob([content], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `evidence-pack-${verificationId}.txt`;
-      a.click();
-      URL.revokeObjectURL(url);
-    }, 1000);
+      generateDefaultReport();
+      toast({ title: "Report downloaded", description: "Evidence pack saved as PDF." });
+    }, 500);
   };
 
   return (

@@ -21,15 +21,17 @@ const CTASection = () => {
             Deploy enterprise-grade deepfake detection in minutes. Start with our free trial — no credit card required.
           </p>
           <div className="relative mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/dashboard">
+            <Link to="/signup">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-8">
                 Start free trial
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
+            <a href="mailto:sales@veriastra.ai">
             <Button variant="outline" size="lg" className="h-12 px-8 border-border text-foreground hover:bg-secondary">
               Contact sales
             </Button>
+            </a>
           </div>
         </motion.div>
       </div>

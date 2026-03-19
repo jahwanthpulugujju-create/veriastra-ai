@@ -59,16 +59,18 @@ const HeroSection = () => {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
-              <Link to="/dashboard">
+              <Link to="/signup">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-8 text-base">
                   Start free trial
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="h-12 px-8 text-base border-border text-foreground hover:bg-secondary">
-                <Play className="mr-2 h-4 w-4" />
-                Watch demo
-              </Button>
+              <Link to="/dashboard">
+                <Button variant="outline" size="lg" className="h-12 px-8 text-base border-border text-foreground hover:bg-secondary">
+                  <Play className="mr-2 h-4 w-4" />
+                  View demo
+                </Button>
+              </Link>
             </div>
 
             {/* Stats */}
