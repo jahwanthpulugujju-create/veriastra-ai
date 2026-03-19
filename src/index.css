@@ -90,6 +90,17 @@
     background: linear-gradient(90deg, transparent, hsl(var(--scan-line)), transparent);
     animation: scan 2s ease-in-out infinite;
   }
+  .risk-glow-high {
+    animation: risk-pulse 2s ease-in-out infinite;
+  }
+}
+
+/* Micro-interactions */
+button, a {
+  transition: transform 0.1s ease, opacity 0.15s ease;
+}
+button:active {
+  transform: scale(0.97);
 }
 
 @keyframes scan {
@@ -101,6 +112,11 @@
   0% { box-shadow: 0 0 0 0 hsl(217 91% 60% / 0.4); }
   70% { box-shadow: 0 0 0 10px hsl(217 91% 60% / 0); }
   100% { box-shadow: 0 0 0 0 hsl(217 91% 60% / 0); }
+}
+
+@keyframes risk-pulse {
+  0%, 100% { box-shadow: 0 0 8px hsl(347, 77%, 50%, 0.3); }
+  50% { box-shadow: 0 0 16px hsl(347, 77%, 50%, 0.6); }
 }
 
 .pulse-glow {
