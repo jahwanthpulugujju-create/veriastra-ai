@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Eye, AudioLines, Scan, Brain, Clock, AlertTriangle, Download, X, ChevronDown, ChevronUp, Layers, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
+import { generateDefaultReport } from "@/lib/generateReport";
 
 interface Props {
   open: boolean;
