@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard, BarChart3, Settings, LogOut,
-  Search, Bell, ChevronDown, Radio, Code2, ShieldCheck, Scan, ArrowLeft
+  Search, Bell, ChevronDown, Radio, Code2, ShieldCheck, Scan, ArrowLeft, Menu, X
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import DemoTour from "@/components/DemoTour";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Overview", path: "/dashboard" },
