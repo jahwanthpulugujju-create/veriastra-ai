@@ -102,15 +102,15 @@ const PricingSection = () => {
                   </li>
                 ))}
               </ul>
-              <Button
-                className={`w-full mt-8 ${
-                  plan.highlighted
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                    : "bg-secondary text-foreground hover:bg-accent"
-                }`}
-              >
-                {plan.cta}
-              </Button>
+              {plan.name === "Custom" ? (
+                <a href="mailto:sales@veriastra.ai">
+                  <Button className="w-full mt-8 bg-secondary text-foreground hover:bg-accent">{plan.cta}</Button>
+                </a>
+              ) : (
+                <Link to="/signup">
+                  <Button className={`w-full mt-8 ${plan.highlighted ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-secondary text-foreground hover:bg-accent"}`}>{plan.cta}</Button>
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
