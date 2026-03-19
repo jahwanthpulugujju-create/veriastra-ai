@@ -9,6 +9,7 @@ import ExplainabilityPanel from "@/components/analytics/ExplainabilityPanel";
 import AttackSimulation from "@/components/analytics/AttackSimulation";
 import AnalyticsFilters from "@/components/analytics/AnalyticsFilters";
 import { toast } from "@/hooks/use-toast";
+import { generateAnalyticsReport } from "@/lib/generateReport";
 
 const Analytics = () => {
   const [dateRange, setDateRange] = useState("7d");
