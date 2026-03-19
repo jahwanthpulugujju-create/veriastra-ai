@@ -31,6 +31,7 @@ const CTASection = () => {
             <Button variant="outline" size="lg" className="h-12 px-8 border-border text-foreground hover:bg-secondary">
               Contact sales
             </Button>
+            </a>
           </div>
         </motion.div>
       </div>

@@ -23,17 +23,10 @@ const Analytics = () => {
 
   const handleExport = useCallback(() => {
     toast({ title: "Generating Security Report", description: "Your PDF report will download shortly." });
-    // Simulate PDF generation
     setTimeout(() => {
-      const blob = new Blob([`Veriastra Security Report\nGenerated: ${new Date().toISOString()}\n\nDetection Accuracy: 97.4%\nFalse Positive Rate: 1.2%\nFalse Negative Rate: 0.8%\nROC-AUC: 0.992\nTotal Verifications: 12,843\n\nAttack Distribution:\n- Face Swap: 38%\n- Voice Clone: 24%\n- Synthetic Video: 21%\n- Replay Attack: 11%\n- Mask Spoof: 6%\n\nAll attacks detected with >89% confidence.\n`], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `veriastra-report-${new Date().toISOString().slice(0, 10)}.txt`;
-      a.click();
-      URL.revokeObjectURL(url);
-      toast({ title: "Report downloaded", description: "Security report saved." });
-    }, 1500);
+      generateAnalyticsReport();
+      toast({ title: "Report downloaded", description: "Analytics PDF saved." });
+    }, 500);
   }, []);
 
   // Live refresh simulation

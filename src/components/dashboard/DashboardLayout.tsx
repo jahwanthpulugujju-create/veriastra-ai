@@ -31,15 +31,25 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
-      <aside className="w-64 shrink-0 border-r border-border bg-navy-deep flex flex-col">
-        <Link to="/" className="flex items-center gap-2.5 px-6 py-5 border-b border-border">
-          <img src="/veriastra-logo.png" alt="Veriastra logo" className="h-6 w-6 object-contain" />
-          <span className="font-bold text-foreground text-sm tracking-widest uppercase">Veriastra</span>
-        </Link>
+      {/* Mobile backdrop */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm lg:hidden" onClick={() => setMobileOpen(false)} />
+      )}
 
-        {/* New Verification CTA */}
+      {/* Sidebar */}
+      <aside className={`fixed lg:relative z-50 lg:z-auto w-64 shrink-0 border-r border-border bg-navy-deep flex flex-col h-full transition-transform lg:translate-x-0 ${mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}>
+        <div className="flex items-center justify-between px-6 py-5 border-b border-border">
+          <Link to="/" className="flex items-center gap-2.5" data-tour="sidebar-logo">
+            <img src="/veriastra-logo.png" alt="Veriastra logo" className="h-6 w-6 object-contain" />
+            <span className="font-bold text-foreground text-sm tracking-widest uppercase">Veriastra</span>
+          </Link>
+          <button className="lg:hidden text-muted-foreground hover:text-foreground" onClick={() => setMobileOpen(false)}>
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
         <div className="px-4 pt-4 pb-2">
-          <Link to="/verify" className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 transition-colors w-full text-sm font-semibold">
+          <Link to="/verify" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 transition-colors w-full text-sm font-semibold">
             <Scan className="h-4 w-4" />
             New Verification
           </Link>
@@ -52,6 +62,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               <Link
                 key={item.label}
                 to={item.path}
+                onClick={() => setMobileOpen(false)}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
                   active
                     ? "bg-primary/10 text-primary border-l-2 border-l-primary ml-0 pl-[10px]"
@@ -65,7 +76,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           })}
         </nav>
 
-        {/* User info + sign out */}
         <div className="p-4 border-t border-border space-y-2">
           {user && (
             <div className="flex items-center gap-2.5 px-3 py-2">
@@ -97,13 +107,18 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       </aside>
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="h-14 border-b border-border flex items-center justify-between px-6 shrink-0">
-          <div className="flex items-center gap-3 bg-secondary rounded-lg px-3 py-1.5 w-72">
-            <Search className="h-4 w-4 text-muted-foreground" />
-            <span className="text-sm text-muted-foreground">Search verifications…</span>
+        <header className="h-14 border-b border-border flex items-center justify-between px-4 md:px-6 shrink-0">
+          <div className="flex items-center gap-3">
+            <button className="lg:hidden text-muted-foreground hover:text-foreground" onClick={() => setMobileOpen(true)}>
+              <Menu className="h-5 w-5" />
+            </button>
+            <div className="hidden sm:flex items-center gap-3 bg-secondary rounded-lg px-3 py-1.5 w-56 md:w-72">
+              <Search className="h-4 w-4 text-muted-foreground" />
+              <span className="text-sm text-muted-foreground">Search verifications…</span>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-mono-data">
+          <div className="flex items-center gap-3 md:gap-4">
+            <div className="hidden md:flex items-center gap-1.5 text-xs text-muted-foreground font-mono-data">
               <ShieldCheck className="h-3.5 w-3.5 text-success" />
               <span className="text-success">Systems nominal</span>
             </div>
@@ -111,7 +126,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               <Bell className="h-5 w-5" />
               <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-destructive" />
             </button>
-            <div className="flex items-center gap-2 text-sm text-foreground cursor-pointer">
+            <div className="hidden sm:flex items-center gap-2 text-sm text-foreground cursor-pointer">
               <div className="h-7 w-7 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium text-primary">
                 {initials}
               </div>
@@ -122,6 +137,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         </header>
         {children}
       </div>
+
+      <DemoTour />
     </div>
   );
 };
