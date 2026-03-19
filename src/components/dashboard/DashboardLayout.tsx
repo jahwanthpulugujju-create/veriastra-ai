@@ -16,6 +16,7 @@ const navItems = [
 ];
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
@@ -31,12 +32,10 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
-      {/* Mobile backdrop */}
       {mobileOpen && (
         <div className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm lg:hidden" onClick={() => setMobileOpen(false)} />
       )}
 
-      {/* Sidebar */}
       <aside className={`fixed lg:relative z-50 lg:z-auto w-64 shrink-0 border-r border-border bg-navy-deep flex flex-col h-full transition-transform lg:translate-x-0 ${mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}>
         <div className="flex items-center justify-between px-6 py-5 border-b border-border">
           <Link to="/" className="flex items-center gap-2.5" data-tour="sidebar-logo">
