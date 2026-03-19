@@ -136,7 +136,7 @@ export class FaceAnalyzer {
     if (this.noseTipHistory.length > 60) this.noseTipHistory.shift();
 
     const symmetry = computeSymmetry(lm);
-    const expressions = d.expressions as Record<string, number>;
+    const expressions = d.expressions as unknown as Record<string, number>;
     const topExpr = Object.entries(expressions).sort((a, b) => b[1] - a[1])[0];
 
     const frame: FrameData = {
